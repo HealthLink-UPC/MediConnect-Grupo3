@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediConnect | Recetas médicas digitales</title>
+  <meta name="description" content="MediConnect es la plataforma que permite gestionar tus recetas y renovaciones médicas sin trámites presenciales, ahorrando tiempo y esfuerzo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="logo" aria-label="MediConnect, ir al inicio">
+        <img src="images/logo.png" alt="" class="logo__icon" width="44" height="44">
+        <span class="logo__text">MediConnect</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="menu" class="nav" aria-label="Navegación principal">
+        <a href="#inicio" class="is-active">Inicio</a>
+        <a href="#como-funciona">¿Cómo funciona?</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#pacientes">Para pacientes</a>
+        <a href="#medicos">Para médicos</a>
+        <a href="#faq">Preguntas frecuentes</a>
+        <a href="#contacto">Contáctanos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="inicio" class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <h1>MediConnect: Recetas médicas de <strong>forma digital, rápida y segura.</strong></h1>
+          <p>MediConnect es la plataforma que permite gestionar tus recetas y renovaciones médicas sin trámites presenciales, ahorrando tiempo y esfuerzo.</p>
+          <a href="#como-funciona" class="btn btn--primary">
+            Conoce más
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          </a>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__circle"></div>
+          <div class="hero__circle hero__circle--small"></div>
+          <img src="images/doctora.png" alt="Doctora sonriendo con bata blanca" class="hero__img">
+
+          <div class="float-card float-card--top">
+            <div class="float-card__head">
+              <span class="float-card__check">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+              </span>
+              <strong>Receta confirmada</strong>
+              <svg class="float-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+            </div>
+            <p class="float-card__name">Dra. Claudia Ramos</p>
+            <p class="float-card__meta">Médico general · Hoy, 10:30 a. m.</p>
+          </div>
+
+          <div class="float-card float-card--bottom">
+            <span class="float-card__shield">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.500-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <div>
+              <strong>100% seguro</strong>
+              <p>Tus datos están protegidos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="section steps">
+      <div class="container steps__inner">
+        <div class="steps__content">
+          <span class="eyebrow">Paso a paso</span>
+          <h2>¿Cómo funciona?</h2>
+          <p class="section__lead">Gestiona tus recetas médicas en pocos pasos y sin salir de casa.</p>
+
+          <ol class="steps__list">
+            <li>
+              <span class="step__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="8" r="3.500"/><path d="M3.500 20c0-3.600 3-6 6.500-6 1.300 0 2.500.3 3.500 1M18 14v6M15 17h6"/></svg>
+              </span>
+              <span class="step__num">Paso 1</span>
+              <h3>Regístrate</h3>
+              <p>Crea tu cuenta de forma rápida y sencilla en pocos minutos.</p>
+            </li>
+            <li>
+              <span class="step__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2.500"/><path d="M8 3v4M16 3v4M4 10h16M9 15l2 2 4-4"/></svg>
+              </span>
+              <span class="step__num">Paso 2</span>
+              <h3>Solicita</h3>
+              <p>Pide la renovación de tu receta desde la plataforma.</p>
+            </li>
+            <li>
+              <span class="step__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2.500"/><path d="M8 3v4M16 3v4M4 10h16M8 15h8"/></svg>
+              </span>
+              <span class="step__num">Paso 3</span>
+              <h3>Revisa</h3>
+              <p>El médico revisa tu solicitud y valida tu tratamiento.</p>
+            </li>
+            <li>
+              <span class="step__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2.500"/><path d="M16 10.500l5-3v9l-5-3"/></svg>
+              </span>
+              <span class="step__num">Paso 4</span>
+              <h3>Accede</h3>
+              <p>Descarga y visualiza tu receta de forma digital.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="phone-wrap" aria-hidden="true">
+          <div class="phone-wrap__bg"></div>
+          <div class="phone">
+            <div class="phone__screen">
+              <span class="phone__check">
+                <svg viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7.500"/></svg>
+              </span>
+              <p class="phone__title">¡Tu receta está lista!</p>
+              <p class="phone__text">Tu médico ya validó tu solicitud. Puedes ver tu receta digital.</p>
+              <div class="phone__box"></div>
+              <span class="phone__btn">Ver mi receta</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios" class="benefits">
+      <div class="container">
+        <span class="eyebrow eyebrow--light">Beneficios</span>
+        <h2>¿Por qué elegir MediConnect?</h2>
+        <p class="section__lead">Una solución pensada para cuidar de ti, simple y confiable.</p>
+
+        <ul class="benefits__grid">
+          <li>
+            <span class="benefit__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2.500"/><path d="M8 3v4M16 3v4M4 10h16M9 15l2 2 4-4"/></svg>
+            </span>
+            <div>
+              <h3>Sin traslados presenciales</h3>
+              <p>Solicita y recibe tus recetas sin salir de casa.</p>
+            </div>
+          </li>
+          <li>
+            <span class="benefit__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.200-7-10a4 4 0 0 1 7-2.500A4 4 0 0 1 19 10c0 5.800-7 10-7 10z"/></svg>
+            </span>
+            <div>
+              <h3>Atención segura</h3>
+              <p>Profesionales médicos verificados y de confianza.</p>
+            </div>
+          </li>
+          <li>
+            <span class="benefit__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.500-3 8-7 10-4-2-7-5.500-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <div>
+              <h3>Tus datos protegidos</h3>
+              <p>Tu información médica siempre está segura.</p>
+            </div>
+          </li>
+          <li>
+            <span class="benefit__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+            </span>
+            <div>
+              <h3>Acceso desde cualquier lugar</h3>
+              <p>Gestiona tus recetas desde tu celular o computadora.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section audiences">
+      <div class="container audiences__grid">
+
+        <article id="pacientes" class="audience">
+          <div class="audience__text">
+            <span class="eyebrow">Para pacientes</span>
+            <h2>Tu salud, en tus manos</h2>
+            <p>Solicita renovaciones, consulta tus recetas y revisa tu historial médico de forma fácil y segura.</p>
+            <a href="#contacto" class="btn btn--primary btn--sm">
+              Conoce más
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <img src="images/paciente.png" alt="Cuidadora acompañando a una paciente adulta mayor" class="audience__img">
+        </article>
+
+        <article id="medicos" class="audience">
+          <div class="audience__text">
+            <span class="eyebrow">Para médicos</span>
+            <h2>Más tiempo para lo importante</h2>
+            <p>Revisa y gestiona las solicitudes de tus pacientes, accede a sus recetas y mantén un mejor control de sus tratamientos.</p>
+            <a href="#contacto" class="btn btn--primary btn--sm">
+              Conoce más
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <img src="images/medico.png" alt="Médico sonriendo con estetoscopio" class="audience__img">
+        </article>
+
+      </div>
+    </section>
+
+    <section id="faq" class="section faq">
+      <div class="container faq__inner">
+        <div class="faq__intro">
+          <span class="eyebrow">Preguntas frecuentes</span>
+          <h2>Resuelve tus dudas</h2>
+          <p>Encuentra respuestas a las preguntas más comunes sobre MediConnect y su funcionamiento.</p>
+        </div>
+
+        <div class="faq__list">
+          <details>
+            <summary>¿Es seguro utilizar MediConnect?</summary>
+            <p>Sí. Protegemos tu información médica con cifrado y control de acceso por roles, y solo las personas autorizadas pueden consultarla.</p>
+          </details>
+          <details>
+            <summary>¿Cómo solicito la renovación de una receta?</summary>
+            <p>Inicia sesión, elige el medicamento de tu tratamiento y presiona “Solicitar renovación”. Tu médico revisará la solicitud y podrás ver su estado en todo momento.</p>
+          </details>
+          <details>
+            <summary>¿Qué tipo de receta puedo gestionar?</summary>
+            <p>Puedes gestionar recetas de tratamientos recurrentes o crónicos. Tu médico decide si la renovación es posible según tu historial.</p>
+          </details>
+          <details>
+            <summary>¿Necesito tener una cuenta para usar la plataforma?</summary>
+            <p>Sí. Crear tu cuenta es rápido y gratuito, y te permite solicitar recetas, ver tu historial y dar seguimiento a tus solicitudes.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  
+    <section id="contacto" class="section contact">
+      <div class="container contact__inner">
+        <div class="contact__text">
+          <span class="eyebrow">Contáctanos</span>
+          <h2>Estamos para ayudarte</h2>
+          <p>¿Tienes alguna pregunta? Déjanos tus datos y nuestro equipo se comunicará contigo.</p>
+          <a href="mailto:hola@mediconnect.pe" class="contact__mail">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.500"/><path d="M4 7l8 6 8-6"/></svg>
+            hola@mediconnect.pe
+          </a>
+        </div>
+
+        <form class="form" id="contact-form" novalidate>
+          <div class="form__row">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" name="correo" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="mensaje">Cuéntanos cómo podemos ayudarte</label>
+            <textarea id="mensaje" name="mensaje" rows="3" required></textarea>
+          </div>
+          <div class="form__footer">
+            <p class="form__status" role="status" aria-live="polite"></p>
+            <button type="submit" class="btn btn--primary btn--sm">
+              Enviar mensaje
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4 18-7z"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#inicio" class="logo logo--light" aria-label="MediConnect, ir al inicio">
+        <img src="images/logo-claro.png" alt="" class="logo__icon" width="44" height="44">
+        <span class="logo__text">MediConnect</span>
+      </a>
+      <p class="footer__copy">© 2026 MediConnect. Todos los derechos reservados.</p>
+      <nav class="footer__links" aria-label="Legal">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
