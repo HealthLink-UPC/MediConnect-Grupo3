@@ -31,7 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Prueba el flujo completo de MediConnect contra la base de datos real, con token JWT y permisos por rol.
  * Es @Transactional: todo se revierte al terminar cada prueba y no queda ningún dato.
  */
-@SpringBootTest
+@SpringBootTest(properties = "app.mfa.activo=false") // el flujo de prueba inicia sesión sin pedir código por correo
 @AutoConfigureMockMvc
 @Transactional
 class FlujoCompletoTest {
@@ -61,7 +61,7 @@ class FlujoCompletoTest {
 
         // ---- US01: registro (público) con id_rol
         // Paciente con datos incompletos -> 400
-        enviar(post("/auth/register/paciente"), null, "{\"correo_usuario\":\"y" + sufijo + "@test.pe\",\"clave_usuario\":\"clave123\"}", 400);
+        enviar(post("/auth/register/paciente"), null, "{\"correo_usuario\":\"y" + sufijo + "@test.pe\",\"clave_usuario\":\"clave12345678\"}", 400);
         // Médico sin especialidad, CMP ni centro de atención -> 400
         enviar(post("/auth/register/medico"), null, registro("z" + sufijo + "@test.pe", "5" + sufijo + "00", "96" + sufijo + "00", ""), 400);
         // El endpoint anterior que mezclaba ambos ya no existe
@@ -314,7 +314,7 @@ class FlujoCompletoTest {
         mockMvc.perform(con(delete("/usuarios/" + idUsuarioPaciente2), tokenPaciente)).andExpect(status().isForbidden());
         mockMvc.perform(con(delete("/usuarios/" + idUsuarioPaciente2), tokenPaciente2)).andExpect(status().isOk());
         mockMvc.perform(con(get("/medicos/listar"), tokenPaciente2)).andExpect(status().isUnauthorized());
-        enviar(post("/auth/login"), null, "{\"correo_usuario\":\"paciente2" + sufijo + "@test.pe\",\"clave_usuario\":\"clave123\"}", 401);
+        enviar(post("/auth/login"), null, "{\"correo_usuario\":\"paciente2" + sufijo + "@test.pe\",\"clave_usuario\":\"clave12345678\"}", 401);
 
         String auditoriaBajas = mockMvc.perform(con(get("/auditoria/listar"), tokenMedico)).andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString();
@@ -395,7 +395,7 @@ class FlujoCompletoTest {
 
     private MvcResult login(String correo) throws Exception {
         return enviar(post("/auth/login"), null,
-                "{\"correo_usuario\":\"" + correo + "\",\"clave_usuario\":\"clave123\"}", 200);
+                "{\"correo_usuario\":\"" + correo + "\",\"clave_usuario\":\"clave12345678\"}", 200);
     }
 
     private int campo(MvcResult resultado, String ruta) throws Exception {
@@ -420,7 +420,7 @@ class FlujoCompletoTest {
     }
 
     private String registro(String correo, String dni, String telefono, String extra) {
-        return "{\"correo_usuario\":\"" + correo + "\",\"clave_usuario\":\"clave123\","
+        return "{\"correo_usuario\":\"" + correo + "\",\"clave_usuario\":\"clave12345678\","
                 + "\"nombre_usuario\":\"Test\",\"apellido_usuario\":\"Usuario\",\"dni\":\"" + dni.substring(0, 8) + "\","
                 + "\"fecha_nacimiento\":\"1980-05-20\",\"telefono\":\"" + telefono.substring(0, 9) + "\"" + extra + "}";
     }

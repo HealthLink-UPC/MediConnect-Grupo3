@@ -79,7 +79,8 @@ public class JwtFilter extends OncePerRequestFilter {
             return true;
         }
         return (metodo.equals("POST") && (ruta.equals("/auth/register/paciente") || ruta.equals("/auth/register/medico")
-                || ruta.equals("/auth/login")))
+                || ruta.equals("/auth/login") || ruta.equals("/auth/login/verificar") || ruta.equals("/auth/login/reenviar")
+                || ruta.equals("/auth/recuperar") || ruta.equals("/auth/recuperar/verificar") || ruta.equals("/auth/recuperar/restablecer")))
                 || (metodo.equals("GET") && ruta.equals("/roles/listar"));
     }
 
