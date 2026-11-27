@@ -1,5 +1,6 @@
 package com.example.mediconnect_project.Service.Impl;
 
+import com.example.mediconnect_project.Dto.CambioClaveDTO;
 import com.example.mediconnect_project.Dto.LoginRespuestaDTO;
 import com.example.mediconnect_project.Dto.PerfilDto;
 import com.example.mediconnect_project.Dto.DatosRegistro;
@@ -183,6 +184,48 @@ public class UsuarioServiceImpl implements UsuarioService {
         auditoriaService.registrar_edicion(AuditoriaServiceImpl.TABLA_USUARIO, idUsuario, idUsuario);
 
         return convertir(usuario);
+    }
+
+    @Override
+    @Transactional
+    public String cambiar_clave(Long idUsuario, CambioClaveDTO cambio) {
+        UsuarioActual.exigir_usuario(idUsuario);
+        UsuarioEntity usuario = buscar_usuario(idUsuario);
+
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        if (!encoder.matches(cambio.getClave_actual(), usuario.getClave_usuario())) {
+            throw new IllegalArgumentException("La contraseña actual no es correcta");
+        }
+        if (cambio.getClave_actual().equals(cambio.getClave_nueva())) {
+            throw new IllegalArgumentException("La nueva contraseña debe ser distinta de la actual");
+        }
+
+        usuario.setClave_usuario(encoder.encode(cambio.getClave_nueva()));
+        repository.save(usuario);
+        auditoriaService.registrar_edicion(AuditoriaServiceImpl.TABLA_USUARIO, idUsuario, idUsuario);
+
+        log.info("El usuario {} cambió su contraseña", idUsuario);
+        return "Contraseña actualizada";
+    }
+
+    @Override
+    public boolean existe_cuenta_activa(String correo) {
+        UsuarioEntity usuario = repository.buscar_por_correo(correo);
+        return usuario != null && Integer.valueOf(ESTADO_ACTIVO).equals(usuario.getEstado_usuario());
+    }
+
+    @Override
+    @Transactional
+    public String restablecer_clave(String correo, String claveNueva) {
+        UsuarioEntity usuario = repository.buscar_por_correo(correo);
+        if (usuario == null || !Integer.valueOf(ESTADO_ACTIVO).equals(usuario.getEstado_usuario())) {
+            throw new IllegalArgumentException("No se pudo restablecer la contraseña");
+        }
+        usuario.setClave_usuario(new BCryptPasswordEncoder().encode(claveNueva));
+        repository.save(usuario);
+        auditoriaService.registrar_edicion(AuditoriaServiceImpl.TABLA_USUARIO, usuario.getId_usuario(), usuario.getId_usuario());
+        log.info("El usuario {} restableció su contraseña", usuario.getId_usuario());
+        return "Contraseña restablecida";
     }
 
     @Override

@@ -20,7 +20,7 @@ public class RegistroPacienteDTO implements DatosRegistro {
     private String correo_usuario;
 
     @NotBlank(message = "La contraseña es obligatoria")
-    @Size(min = 6, max = 50, message = "La contraseña debe tener entre 6 y 50 caracteres")
+    @Size(min = 12, max = 50, message = "La contraseña debe tener entre 12 y 50 caracteres")
     private String clave_usuario;
 
     @NotBlank(message = "El nombre es obligatorio")

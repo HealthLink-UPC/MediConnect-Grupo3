@@ -1,5 +1,6 @@
 package com.example.mediconnect_project.Controller;
 
+import com.example.mediconnect_project.Dto.CambioClaveDTO;
 import com.example.mediconnect_project.Dto.PerfilDto;
 import com.example.mediconnect_project.Service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -28,6 +29,12 @@ public class UsuarioController {
     @Operation(summary = "Dar de baja la propia cuenta (baja lógica: ya no podrá iniciar sesión)")
     public String dar_de_baja(@PathVariable Long idUsuario) {
         return service.dar_de_baja(idUsuario);
+    }
+
+    @PutMapping("{idUsuario}/clave")
+    @Operation(summary = "Cambiar la propia contraseña (pide la contraseña actual)")
+    public String cambiar_clave(@PathVariable Long idUsuario, @Valid @RequestBody CambioClaveDTO cambio) {
+        return service.cambiar_clave(idUsuario, cambio);
     }
 
     @PutMapping("{idUsuario}")
